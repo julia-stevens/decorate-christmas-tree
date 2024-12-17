@@ -32,7 +32,7 @@ function webAudioAPI() {
 
 
   playButton.addEventListener('click', togglePlayBack, false)
-  volumeControl.addEventListener("input", adjustVolume, false)
+  volumeControl.addEventListener("input", adjustVolume, false) // Assignment: Add a volume button
 
   function togglePlayBack (e) {
     // Check if context is in suspended state (autoplay policy)
