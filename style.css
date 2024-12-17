@@ -178,8 +178,9 @@ body.audio-control button {
     --_opacity:1;
 }
 
-button {
-    --_opacity:0;
+/* Assignment: Add a volume button */
+.music-control, button {
+    --_opacity:1;
     --_brdr-color:var(--gold-neutral);
     --_bg-color:var(--gold-lightest);
     --_color: var(--gold-darkest);
@@ -196,12 +197,21 @@ button {
     z-index:1000;
     opacity:var(--_opacity);
 
+    /* Assignment: Add a volume button */
+    display: flex;
+    align-items: center;
+
     &:hover,
     &:focus-visible {
         --_brdr-color:var(--green-darkest);
         --_bg-color:var(--green-lightest);
         --_color:var(--green-darkest);
-        translate: 2px 1px;
-    }
+        /* translate: 2px 1px; */
+    } 
+}
 
+button {
+    position: fixed;
+    bottom: 4rem;
+    right:2rem;
 }

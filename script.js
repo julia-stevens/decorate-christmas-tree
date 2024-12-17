@@ -11,7 +11,7 @@ Wep API's:
 
 webAudioAPI()
 dragAndDropAPI()
-speechAPI()
+// speechAPI()
 
 // Web Audio API
 // Source: https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API
@@ -23,10 +23,16 @@ function webAudioAPI() {
   const audioContext = new AudioContext()
   const track = audioContext.createMediaElementSource(audioElement)
   const playButton = document.querySelector('button')
+  const gainNode = audioContext.createGain(); // Assignment: Add a volume button
+  const volumeControl = document.querySelector("#volume"); // Assignment: Add a volume button
+
 
   track.connect(audioContext.destination)
+  track.connect(gainNode).connect(audioContext.destination); // Assignment: Add a volume button
+
 
   playButton.addEventListener('click', togglePlayBack, false)
+  volumeControl.addEventListener("input", adjustVolume, false)
 
   function togglePlayBack (e) {
     // Check if context is in suspended state (autoplay policy)
@@ -37,13 +43,18 @@ function webAudioAPI() {
     // Play or pause track depending on state
     if (playButton.dataset.playing === "false") {
       audioElement.play()
-      playButton.textContent = "Pause 🎶"
+      playButtonText.textContent = `Pause 🎶`
       playButton.dataset.playing = "true"
     } else if (playButton.dataset.playing === "true") {
       audioElement.pause()
-      playButton.textContent = "Play 🎶"
+      pauseButtonText.textContent = `Play 🎶`
       playButton.dataset.playing = "false"
     }
+  }
+
+  // Assignment: Add a volumne button
+  function adjustVolume (e) {
+    gainNode.gain.value = volumeControl.value;
   }
 }
 
