@@ -210,8 +210,13 @@ body.audio-control button {
     } 
 }
 
+.music-control input {
+    cursor: pointer; 
+}
+
 button {
     position: fixed;
     bottom: 4rem;
     right:2rem;
+    cursor: pointer; 
 }
