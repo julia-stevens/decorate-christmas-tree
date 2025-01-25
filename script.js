@@ -87,7 +87,7 @@ function dragAndDropAPI(){
     const decoration = document.getElementById(decorationId)
     
     // todo: feature detection for View Transition API
-    const viewTransition = document.startViewTransition(() => {
+    // const viewTransition = document.startViewTransition(() => {
       if (decoration) {
         decoration.dataset.sound ? audioFile = `${decorationId}.wav` : audioFile = 'slide.wav'
         const audioElement = new Audio(`audio/${audioFile}`)
@@ -107,7 +107,7 @@ function dragAndDropAPI(){
         decoration.style.setProperty('--offset-x', `${offsetX}px`)
         decoration.style.setProperty('--offset-y', `${offsetY}px`)        
       }
-    })
+    // })
 
     event.preventDefault()
   })
